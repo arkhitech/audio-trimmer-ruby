@@ -21,11 +21,11 @@ class AudioTrimmer
 			out_arr = @input.split('.')
 			out_arr[out_arr.length-2] += "_out" 
 			output = out_arr.join(".")
-			`sox #{@input} #{output} trim #{start} =#{finish}`
+			`sox "#{@input}" "#{output}" trim #{start} =#{finish}`
 			`mv #{output} #{@input}`
 		else
 			output = File.expand_path(output)
-			`sox #{@input} #{output} trim #{start} =#{finish}`
+			`sox "#{@input}" "#{output}" trim #{start} =#{finish}`
 		end
 		return "trim success"
 	end
